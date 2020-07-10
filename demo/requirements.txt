@@ -1,0 +1,10 @@
+# Django==1.9.5
+django-classy-tags
+django-cms
+django-formtools
+django-sekizai
+django-treebeard
+djangocms-admin-style
+html5lib==0.9999999
+six==1.10.0
+wheel==0.29.0

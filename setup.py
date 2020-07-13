@@ -181,12 +181,16 @@ def find_package_data(where='.', package='',
 
 
 ##############################################################################
-
+requirements = []
+with open('requirements.txt','r') as f:
+  requirements = f.read().splitlines()
 # Lista de dependencias a instalar
 if os.path.exists(requirements_path):
-    requirements = list(parse_requirements(requirements_path, session=uuid.uuid1()))
-    install_requires = [str(ir.req) for ir in requirements]
-    dependency_links = [get_url(ir) for ir in requirements if get_url(ir)]
+    requirements = []
+    with open('requirements.txt', 'r') as f:
+        requirements = f.read().splitlines()
+    install_requires = requirements
+    dependency_links = []
 else:
     install_requires = INSTALL_REQUIRES
     dependency_links = []
@@ -320,8 +324,6 @@ setup(
     download_url=PACKAGE_DOWNLOAD_URL,
     keywords=KEYWORDS,
     scripts=scripts,
-
     # entry_points={},
-
     zip_safe=False,
 )
